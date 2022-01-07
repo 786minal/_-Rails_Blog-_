@@ -1,0 +1,24 @@
+
+ <table border="2">
+  <tr>
+    <th>
+     <strong>Commenter:</strong>
+    </th>
+    <th>
+     <strong>Comment:</strong>
+    </th>
+  </tr>
+  <tr>
+    <td>
+      <%= comment.commenter %>
+    </td>
+    <td>
+     <%= comment.description %>
+    </td>
+    <td>
+      <%= link_to 'Destroy Comment', [comment.article, comment],
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+    </td>>
+  </tr>
+</table>
