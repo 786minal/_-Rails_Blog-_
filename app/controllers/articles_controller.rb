@@ -13,6 +13,7 @@ class ArticlesController < ApplicationController
     @article = current_user.articles.build(article_params)
 
     if @article.save
+      FilterJob.perform_later(@article.id)
       redirect_to @article
     else
       render :new, status: :unprocessable_entity
@@ -42,7 +43,6 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article).permit(:user_id, :Tittle, :description)
     end
-
 end
 
 
