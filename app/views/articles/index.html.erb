@@ -16,6 +16,11 @@
     <td>
      <%= link_to article.Tittle, article %>
     </td>
+   <td>
+     
+      <%#= image_tag @article.image.url(:medium) %>
+      <%= image_tag article.image.url(:thumb) %>
+    </td>
     <td> <%= article.user.email%></td>
       <%if article.user.email==current_user.email %>
       <td><%= link_to "Edit", edit_article_path(article) %></td>

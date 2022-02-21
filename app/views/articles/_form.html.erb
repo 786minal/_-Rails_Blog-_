@@ -1,5 +1,5 @@
 
-<%= form_for article do |form| %>
+<%= form_for @article, url: @article, html: { multipart: true } do |form| %>
   <div>
     <%= form.label :Tittle %><br>
     <%= form.text_field :Tittle %>
@@ -15,7 +15,10 @@
       <div><%= message %></div>
     <% end %>
   </div>
-
+ <div>
+    <%= form.label :image %><br>
+    <%= form.file_field :image %><br>
+  </div>
   <div>
     <%= form.submit %>
   </div>
