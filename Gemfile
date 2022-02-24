@@ -8,6 +8,8 @@ gem 'sinatra' , github:'sinatra/sinatra'
 gem 'rails', '~> 5.2.6'
 # Use sqlite3 as the database for Active Record
 #gem 'faker'
+gem 'ratyrate', '~> 1.2.2.alpha'
+gem 'jquery-rails'
 gem "paperclip", "~> 6.0.0"
 group :development do
   gem 'sqlite3'

@@ -1,8 +1,11 @@
-<%= form_with model: [ @article, @article.comments.build ] do |form| %>
+<%= form_with model: [ @article, @article.comments.build ], local: true do |form| %>
+ 
   <p>
-    <%= form.label :commenter %><br>
-    <%= form.text_field :commenter %>
+    <%= form.label :rating %><br>
+    <%= form.text_field :rating %>
   </p>
+    <%= form.hidden_field :user_id, value: current_user.id %>
+     
   <p>
     <%= form.label :description %><br>
     <%= form.text_area :description %>
