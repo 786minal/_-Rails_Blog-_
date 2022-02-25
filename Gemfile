@@ -11,6 +11,7 @@ gem 'rails', '~> 5.2.6'
 gem 'ratyrate', '~> 1.2.2.alpha'
 gem 'jquery-rails'
 gem "paperclip", "~> 6.0.0"
+gem 'will_paginate', '~> 3.3'
 group :development do
   gem 'sqlite3'
   gem 'capistrano-rails'
