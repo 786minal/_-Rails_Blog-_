@@ -4,7 +4,13 @@ class ArticlesController < ApplicationController
   end
   def show
     @article = Article.find(params[:id])
+    if @article.blank?
+      @average_comment = 0 
+    else
+      @average_comment = Comment.where(article_id: @article.id).average(:rating)
+    end
   end
+
   def new
     @article = current_user.articles.build
   end

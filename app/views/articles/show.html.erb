@@ -11,10 +11,10 @@
       <%#= image_tag @article.image.url(:medium) %>
       <%= image_tag @article.image.url(:thumb) %>
     </td>
-    <!-- <td>
+    <td>
       <div class="average-comment-rating" data-score=<%= @average_comment %>></div>
 
-    </td> -->
+    </td>
     
     <td>
       <%= link_to "Edit", edit_article_path(@article) %>
@@ -44,7 +44,7 @@
     path: '/assets/'
   });
 </script>
-<!-- <script>
+<script>
   $('.average-comment-rating').raty({
     readOnly: true,
     path: '/assets/',
@@ -52,7 +52,8 @@
       return $(this).attr('data-score')
     }
   });
-</script> -->
+</script>
+
 <!-- <script>
   $('.average-comment-rating').raty({
      click: function(score, evt) {
