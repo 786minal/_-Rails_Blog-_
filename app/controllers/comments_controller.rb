@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
    before_action :find_article
+   before_action :author, only: [:edit, :update, :destroy]
 def index
   @comment = Comment.all
 end
@@ -24,6 +25,11 @@ end
     @comment.destroy
 
     redirect_to article_path(@article)
+  end
+ def author
+   
+    redirect_to articles_path, notice: "Not Authorized To Edit This Article" unless @article.user_id==current_user.id
+      
   end
 
   private
