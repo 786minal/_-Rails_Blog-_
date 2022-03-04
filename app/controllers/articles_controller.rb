@@ -3,10 +3,12 @@ class ArticlesController < ApplicationController
  before_action :authenticate_user!, except: [:index, :show]
   before_action :author, only: [:edit, :update, :destroy]
   def index
-    @articles = Article.paginate(:page => params[:page], :per_page => 4)
+     if params[:search_key]
+      @articles = Article.where("Tittle LIKE ? OR description LIKE ?","%#{params[:search_key]}%", "%#{params[:search_key]}%").paginate(:page => params[:page], :per_page => 4)
+    else
+      @articles = Article.paginate(:page => params[:page], :per_page => 4)
+    end 
   end
-
-
   def show
     @article = Article.find(params[:id])
     if @article.blank?

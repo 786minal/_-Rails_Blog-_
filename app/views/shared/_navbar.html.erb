@@ -5,8 +5,6 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      
-      
     </div>
   </div>
   
@@ -21,5 +19,17 @@
   <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
 <% end %>
 </p>
- 
+
+  <div>
+  
+   <!-- search through JS request  -->
+
+  <%= form_tag articles_path, method: :get, remote: true do %>
+  <!-- by writing remote: true it will give the JS request not HTML request -->
+<%= search_field_tag :search, params[:search],placeholder:"type something", class:"form-control", class: 'navbar-form navbar-left', name: "search_key"%>
+<p>
+  <%= submit_tag "search",  :class => 'btn btn-info glyphicon glyphicon-search',:Tittle=> nil %> 
+</p>
+<% end %>
+  </div>
 </nav>

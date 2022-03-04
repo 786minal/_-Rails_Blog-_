@@ -23,3 +23,22 @@
 //     },
 //     path: '/assets/'
 //   });
+// $(function() .on('click'{
+//  $.ajax({
+//   url: "/articles",
+//   method: "get",
+//   data: ":search_key",
+// })
+//  });
+
+  // $("#articles th a").live("click", function() {
+  //   $.getScript(this.href);
+  //   return false;
+  // });
+  // $("#articles_search input").keyup(function() {
+  //   $.get($("#articles_search").attr("action"), $("#articles_search").serialize(), null, "script");
+  //   return false;
+  // });
+
+});
+

@@ -16,7 +16,6 @@ end
     @comment.save
    flash[:success] = "Comment successfully added"
    redirect_to article_path(@article)
-   
   end
  
   def destroy
@@ -28,7 +27,7 @@ end
   end
  def author
    
-    redirect_to articles_path, notice: "Not Authorized To Edit This Article" unless @article.user_id==current_user.id
+    redirect_to articles_path, notice: "Not Authorized To Edit This Comment" unless @article.user_id==current_user.id
       
   end
 
