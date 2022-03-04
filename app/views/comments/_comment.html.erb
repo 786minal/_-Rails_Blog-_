@@ -1,28 +1,21 @@
-<div class="comment-rating" data-score="<%= comment.rating %>"></div>
+<div class="comments">
 
- <table border="2">
-  <tr>
-   
-      <th>
-     <strong>Rating:</strong>
-    </th>
-    <th>
-     <strong>Comment:</strong>
-    </th>
-    <th></th>
-  </tr>
-  <tr>
-    
-     <td>
-      <%= comment.rating %>
-    </td>
-    <td>
-     <%= comment.description %>
-    </td>
-    <td>
-      <%= link_to 'Destroy Comment', [comment.article, comment],
+  <div class="comment-rating" data-score="<%= comment.rating %>"></div>
+
+  <p class="comments-description"><%= comment.description %></p>
+  
+<% if user_signed_in? %>
+    <% if comment.user_id == current_user.id %>
+
+      <div class="links btn-group">
+
+         <%= link_to 'Destroy Comment', [comment.article, comment],class:"btn btn-custom",
               method: :delete,
               data: { confirm: "Are you sure?" } %>
-    </td>
-  </tr>
-</table>
+
+      </div>
+    
+    <% end %> 
+  <% end %>
+</div>
+

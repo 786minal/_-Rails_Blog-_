@@ -1,18 +1,11 @@
 <%= form_with model: [ @article, @article.comments.build ], local: true do |form| %>
  
-
-  <p>
-    <%= form.label :rating ,placeholder:"Rate the article" %><br>
-    <%= form.radio_button :rating, 1 %> Hate
-    <%= form.radio_button :rating, 2 %> Dislike
-    <%= form.radio_button :rating, 3 %> Netral
-    <%= form.radio_button :rating, 4 %>Like
-    <%= form.radio_button :rating, 5 %> Outstanding
-
-  </p>
-    <%= form.hidden_field :user_id, value: current_user.id %>
-     
-  <p>
+    <div id="rating-form">
+     <%= form.label :rating ,placeholder:"Rate the article"  %><br>
+   
+  </div>
+<%= form.hidden_field :user_id, value: current_user.id %>
+<p>
     <%= form.label :description %><br>
     <%= form.text_area :description , rows: 2, cols:30, placeholder:"Write a Comment..." %>
   </p>
@@ -20,3 +13,11 @@
      <%= form.submit 'Post comment', class:'button' %>
   </p>
 <% end %>
+
+
+<script>
+  $('#rating-form').raty({
+    path: '/assets/',
+    scoreName: 'comment[rating]'
+  });
+</script>

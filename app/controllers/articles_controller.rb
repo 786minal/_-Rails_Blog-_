@@ -46,9 +46,7 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    
-      @user = User.find(params[:user_id])
-    @article = @user.articles.find(params[:id])
+   
     @article.destroy
     redirect_to root_path
   end
