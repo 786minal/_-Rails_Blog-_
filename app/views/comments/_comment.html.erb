@@ -9,7 +9,7 @@
 
       <div class="links btn-group">
 
-         <%= link_to 'Destroy Comment', [comment.article, comment],class:"btn btn-custom",
+         <%= link_to 'Destroy Comment', [comment.article, comment], remote: true, class:"btn btn-custom",
               method: :delete,
               data: { confirm: "Are you sure?" } %>
 
