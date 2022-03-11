@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_24_091952) do
+ActiveRecord::Schema.define(version: 2022_03_11_072731) do
 
   create_table "articles", force: :cascade do |t|
     t.string "Tittle"
@@ -18,10 +18,6 @@ ActiveRecord::Schema.define(version: 2022_02_24_091952) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
@@ -34,6 +30,19 @@ ActiveRecord::Schema.define(version: 2022_02_24_091952) do
     t.integer "rating"
     t.index ["article_id"], name: "index_comments_on_article_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "pictures", force: :cascade do |t|
+    t.string "imageable_type"
+    t.integer "imagaeable_id"
+    t.integer "imageable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.index ["imageable_type", "imageable_id"], name: "index_pictures_on_imageable_type_and_imageable_id"
   end
 
   create_table "users", force: :cascade do |t|

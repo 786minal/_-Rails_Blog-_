@@ -1,4 +1,10 @@
 <div class="comments">
+  <!-- <div class="col-md-4" > -->
+
+    <% comment.pictures.each do |pic|  %>
+      <%= image_tag pic.image.url%>
+    <%end%>
+  <!-- </div> -->
 
   <div class="comment-rating" data-score="<%= comment.rating %>"></div>
 
@@ -9,7 +15,7 @@
 
       <div class="links btn-group">
 
-         <%= link_to 'Destroy Comment', [comment.article, comment], remote: true, class:"btn btn-custom",
+        <%= link_to 'Destroy Comment', [comment.article, comment], remote: true, class:"btn btn-custom",
               method: :delete,
               data: { confirm: "Are you sure?" } %>
 

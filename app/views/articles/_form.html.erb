@@ -7,7 +7,6 @@
       <div><%= message %></div>
     <% end %>
   </div>
-
   <div>
     <%= form.label :description %><br>
     <%= form.text_area :description %><br>
@@ -15,9 +14,14 @@
       <div><%= message %></div>
     <% end %>
   </div>
- <div>
-    <%= form.label :image %><br>
-    <%= form.file_field :image %><br>
+   <%#= form.label :picture %><br>
+    <%#= form.file_field :picture%>
+   <div>
+     <%= form.fields_for :pictures, form.object.pictures.build do |f| %>
+        <!-- , form.object.picture -->
+        <%= f.label :image %><br>
+        <%= f.file_field :image%>
+      <%end %>
   </div>
   <br>
   <div>

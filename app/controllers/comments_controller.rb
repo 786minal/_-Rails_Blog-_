@@ -33,9 +33,11 @@ end
 
   private
     def comment_params
-      params.require(:comment).permit( :rating, :description, :user_id)
+     # params.require(:comment).permit( :rating, :description, :user_id,picture_attributes: [:id , :_destroy])
+      params.require(:comment).permit( :rating, :description, :user_id,:pictures_attributes => [:id, :image, :_destroy])
     end
-      def find_article
-       @article = Article.find(params[:article_id])
+
+    def find_article
+     @article = Article.find(params[:article_id])
     end
 end

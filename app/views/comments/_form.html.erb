@@ -9,10 +9,19 @@
     <%= form.label :description %><br>
     <%= form.text_area :description , rows: 2, cols:30, placeholder:"Write a Comment..." %>
   </p>
+
+  <p>
+    <%= form.fields_for :pictures, form.object.pictures.build do |f| %>
+        <%= f.label :image %><br>
+        <%= f.file_field :image%>
+    <%end %>
+    
+ </p> 
+
   <p>
      <%= form.submit 'Post comment', class:'button' %>
   </p>
-<% end %>
+  <% end %>
 
 
 <script>

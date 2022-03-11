@@ -20,6 +20,7 @@ class ArticlesController < ApplicationController
 
   def new
     @article = current_user.articles.build
+    #@article.picture.build
   end
 
   def create
@@ -37,7 +38,6 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    
     if @article.update(article_params)
       redirect_to @article
     else
@@ -59,7 +59,7 @@ class ArticlesController < ApplicationController
 private
   def article_params
 
-   params.require(:article).permit(:user_id, :Tittle, :description, :image)
+   params.require(:article).permit(:user_id, :Tittle, :description, pictures_attributes: [:id , :image, :_destroy])
   end
 
   def set_article
