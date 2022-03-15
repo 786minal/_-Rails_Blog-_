@@ -1,4 +1,4 @@
-<%= form_with model: [ @article, @article.comments.build ], remote: true do |form| %>
+<%= form_for [ @article, @article.comments.build ], url: article_comments_path(@article), remote: true do |form| %>
  
     <div id="rating-form">
      <%= form.label :rating ,placeholder:"Rate the article"  %><br>

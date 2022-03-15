@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
    before_action :find_article
    before_action :author, only: [:edit, :update, :destroy]
+   skip_before_action :verify_authenticity_token, only: [:create]
 def index
   @comment = Comment.all
 end
@@ -15,15 +16,20 @@ end
     @comment = @article.comments.build(comment_params)
     @comment.save
    flash[:success] = "Comment successfully added"
-   redirect_to article_path(@article)
+   respond_to do |format|
+    format.js  { render :layout => false,  :locals => {comment: @comment}  }
+     format.html { redirect_to article_path(@article)}    
+    end
   end
  
   def destroy
     @article = Article.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
     @comment.destroy
-
-    redirect_to article_path(@article)
+    respond_to do |format|
+     format.html { redirect_to article_path(@article)}    
+      format.js   { render :layout => false,  :locals => {comment: @comment}  }   
+     end
   end
  def author
    

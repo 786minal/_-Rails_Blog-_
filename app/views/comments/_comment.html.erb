@@ -1,4 +1,4 @@
-<div class="comments">
+<div id="comment_<%= comment.id %>">
   <!-- <div class="col-md-4" > -->
 
     <% comment.pictures.each do |pic|  %>
@@ -6,6 +6,7 @@
     <%end%>
   <!-- </div> -->
 
+ <div id="comment-<%= comment.id %>">
   <div class="comment-rating" data-score="<%= comment.rating %>"></div>
 
   <p class="comments-description"><%= comment.description %></p>
@@ -13,9 +14,8 @@
 <% if user_signed_in? %>
     <% if comment.user_id == current_user.id %>
 
-      <div class="links btn-group">
-
-        <%= link_to 'Destroy Comment', [comment.article, comment], remote: true, class:"btn btn-custom",
+      <div id="Destroy" class="links btn-group">
+          <%= link_to 'Destroy Comment', [comment.article, comment], remote: true, class:"delete btn btn-custom",
               method: :delete,
               data: { confirm: "Are you sure?" } %>
 
@@ -24,4 +24,4 @@
     <% end %> 
   <% end %>
 </div>
-
+</div>

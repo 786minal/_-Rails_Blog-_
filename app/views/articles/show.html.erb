@@ -31,8 +31,9 @@
 <!-- comment section start -->
 
 <h2><br>Comments</h2>
-<%= render @article.comments %>
-
+<div id='com_ment'>
+  <%= render @article.comments %>
+</div>
 <h2>Add a comment:</h2>
 <%= render 'comments/form' %>
 

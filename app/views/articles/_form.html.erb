@@ -14,8 +14,7 @@
       <div><%= message %></div>
     <% end %>
   </div>
-   <%#= form.label :picture %><br>
-    <%#= form.file_field :picture%>
+
    <div>
      <%= form.fields_for :pictures, form.object.pictures.build do |f| %>
         <!-- , form.object.picture -->
